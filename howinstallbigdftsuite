@@ -168,13 +168,33 @@
 # git clone https://github.com/frapolella/bigdft-suite.git
 #
 #
-# 3) Compiling
+# 3) Environment
+#
+# export FC=mpifort
+# export F77=mpifort
+# export F90=mpifort
+# export MPIFC=mpifort
+# export CC=mpicc
+# export CXX=mpicxx
+#
+# echo $FC
+# +
+# mkdir -p $HOME/pkgconfig-compat
+#
+# cp /e/software/default/stages/2026/software/OpenMPI/5.0.8-GCC-14.3.0/lib/pkgconfig/ompi.pc $HOME/pkgconfig-compat/mpi.pc
+#
+# cp /e/software/default/stages/2026/software/OpenBLAS/0.3.30-GCC-14.3.0/lib/pkgconfig/openblas.pc $HOME/pkgconfig-compat/blas.pc
+#
+# export PKG_CONFIG_PATH=$HOME/pkgconfig-compat:$PKG_CONFIG_PATH
+#
+# 4) Compiling
 #
 #
 # mv bigdft-suite/ src-dir/
 # mkdir build
 # cd build
-# ../src-dir/Installer.py autogen
-# ../src-dir/Installer.py build -c FC=mpifort   CC=gcc   FCFLAGS="-O2"   --with-ext-linalg="-lopenblas" ###----> 11/18
+# python ../src-dir/Installer.py autogen
+# python ../src-dir/Installer.py build -c FC="$FC"   CC="$CC"   FCFLAGS="-O2"   --with-ext-linalg="-lopenblas" ###----> 18/18
+#
 #
 #
