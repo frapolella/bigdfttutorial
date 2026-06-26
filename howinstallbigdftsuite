@@ -76,7 +76,7 @@
 #    conda install conda-forge::cmake anaconda::numpy anaconda::scipy conda-forge::libblas conda-forge::liblapack conda-forge::autoconf conda-forge::automake conda-forge::libtool conda-forge::openblas conda-forge::pkg-config
 #
 #
-# 2) conda install anaconda::python==3.10.20 --> BigDFT uses "jhbuild" better use older python but not strictly necessary
+# 2) conda install conda-forge::python==3.10.20 --> BigDFT uses "jhbuild" better use older python but not strictly necessary
 # 
 # 
 # export FC=mpifort CC=gcc CXX=g++ FCFLAGS="-O2 -fopenmp"  CFLAGS="-O2" LDFLAGS="-fopenmp"
