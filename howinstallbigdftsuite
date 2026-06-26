@@ -3,7 +3,7 @@
 #It's an improved version of "normal" BigDFT implementing futile (compiler) 'n' CHESS (Sparce matrix solver).
 #
 #While standard BigDFT-suite package use NTpoly, GaIn and PyBigDFT, it doesn't implement "libNEGF" library.
-#To achive maximum potential of bigDFT-suite packages is strongly recommended to install "libNEGF" first --> Electronic transport.
+#To achive maximum potential of bigDFT-suite packages is strongly recommended to install "libNEGF" first to gain information on --> Electronic transport.
 #If u don't want to use non-equilibrium Green's function library it's possible to add at 3) --> ***export BIGDFT_CONFIGURE_FLAGS="--enable-mpi --with-openblas --disable-negf"***
 #
 #Generally PyBigDFT doens't do optimization or molecular dynamic operations but is possible to implement them useing openbabel.
