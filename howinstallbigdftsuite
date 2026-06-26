@@ -73,7 +73,7 @@
 #    conda install conda-forge::openmpi --> separatelly installing "compilers 'n' openmpi" is ruining the environment
 #    
 #
-#    conda install conda-forge::cmake conda-forge::numpy conda-forge::scipy conda-forge::libblas conda-forge::liblapack conda-forge::autoconf conda-forge::automake conda-forge::libtool conda-forge::openblas conda-forge::pkg-config conda-forge::gawk
+#    conda install conda-forge::cmake==3.31.8 conda-forge::numpy conda-forge::scipy conda-forge::libblas conda-forge::liblapack conda-forge::autoconf conda-forge::automake conda-forge::libtool conda-forge::openblas conda-forge::pkg-config conda-forge::gawk
 #
 #
 # 2) conda install conda-forge::python==3.10.20 --> BigDFT uses "jhbuild" better use older python but not strictly necessary
