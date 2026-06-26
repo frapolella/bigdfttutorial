@@ -68,6 +68,8 @@
 # During installation u must bind libnegf library to bigdftsuite
 #
 # 1) conda install conda-forge::compilers
+
+conda install conda-forge::gcc=12.4.0
 #    
 #
 #    conda install conda-forge::openmpi --> separatelly installing "compilers 'n' openmpi" is ruining the environment
