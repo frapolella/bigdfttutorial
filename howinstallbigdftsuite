@@ -203,9 +203,9 @@ conda install conda-forge::gcc=12.4.0
 
 How compile in conda
 
-xport CC=$/home/francesco/miniconda3/envs/bigdft-negf/bin/mpicc            
-export CXX=$/home/francesco/miniconda3/envs/bigdft-negf/bin/mpicxx
-export FC=$/home/francesco/miniconda3/envs/bigdft-negf/bin/mpifort
+export CC=/home/francesco/miniconda3/envs/bigdft-negf/bin/mpicc            
+export CXX=/home/francesco/miniconda3/envs/bigdft-negf/bin/mpicxx
+export FC=/home/francesco/miniconda3/envs/bigdft-negf/bin/mpifort
                 
 export MPICC=$CC
 export MPIFC=$FC
