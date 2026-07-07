@@ -218,3 +218,67 @@ export LDFLAGS="-fopenmp"
 export BIGDFT_CONFIGURE_FLAGS="--enable-mpi \
 --with-ext-linalg=-lopenblas"
 
+
+
+
+
+
+***************How merge BigDFT-Suite with LibNEGF******************
+***************How merge BigDFT-Suite with LibNEGF******************
+***************How merge BigDFT-Suite with LibNEGF******************
+***************How merge BigDFT-Suite with LibNEGF******************
+***************How merge BigDFT-Suite with LibNEGF******************
+***************How merge BigDFT-Suite with LibNEGF******************
+***************How merge BigDFT-Suite with LibNEGF******************
+ 
+
+ export CC=$(which mpicc)
+ export CXX=$(which mpicxx)
+ export FC=$(which mpifort)
+ export F77=$(which mpifort)
+
+ export FCFLAGS="$FCFLAGS -fopenmp"
+ export FFLAGS="$FFLAGS -fopenmp"
+ export LDFLAGS="-fopenmp  -L/usr/local/lib -lmpifx -L/home/francesco/bigdft-negf/negf/src/build/src -lnegf"
+
+ vi ~/bigdft-negf/bigdft/src/chess/configure.ac --> 
+
+if test $ax_FUTILE_static != "yes" ; then
+  LIB_CHESS_DEPS="$LIB_CHESS_DEPS $LIB_NTPOLY_LIBS $LIB_FUTILE_LIBS $LIBCUDA_LIBS $LINALG_LIBS $MPI_LDFLAGS $MPI_LIBS -L/home/francesco/bigdft-negf/negf/src/build/src/ -L/home/francesco/bigdft-negf/negf/src/build/src/include -lnegf" #I added lines to let libnegf seen during the compiling (modified)
+fi
+
+ vi ~/bigdft-negf/bigdft/src/chess/src/Makefile.am -->
+
+chess_toolbox_LDADD = $(chess_library) @LIB_CHESS_DEPS@  @LINALG_LIBS@ #-L/home/francesco/bigdft-negf/negf/src/build/src/ -lnegf # (line modified)
+
+vi ~/bigdft-negf/bigdft/src/chess/bigpoly/Makefile.am 
+
+AM_FCFLAGS = -I. -I$(srcdir) @LIB_FUTILE_CFLAGS@ @MPI_INCLUDE@ \
+             -I$(top_builddir)/includes \
+             -I/home/francesco/bigdft-negf/negf/src/build/src/include # (line modified)
+
+
+********echo $LDFLAGS
+-fopenmp -L/usr/local/lib -lmpifx -L/home/francesco/bigdft-negf/negf/src/build/src -lnegf
+(bigdft-negf) 
+~/bigdft-negf/bigdft/build> echo $FFLAGS
+-fopenmp
+(bigdft-negf) 
+~/bigdft-negf/bigdft/build> echo $FCFLAGS
+-fopenmp
+(bigdft-negf) 
+~/bigdft-negf/bigdft/build> echo $FC
+/home/francesco/miniconda3/envs/bigdft-negf/bin/mpifort
+(bigdft-negf) 
+~/bigdft-negf/bigdft/build> echo $F77
+/home/francesco/miniconda3/envs/bigdft-negf/bin/mpifort
+(bigdft-negf) 
+~/bigdft-negf/bigdft/build> echo $CXX
+/home/francesco/miniconda3/envs/bigdft-negf/bin/mpicxx
+(bigdft-negf) 
+~/bigdft-negf/bigdft/build> echo $CC
+/home/francesco/miniconda3/envs/bigdft-negf/bin/mpicc********
+
+python ../src/Install.py autogen
+python ../src/Install.py build -c
+
