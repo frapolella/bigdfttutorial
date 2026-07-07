@@ -283,7 +283,7 @@ AM_FCFLAGS = -I. -I$(srcdir) @LIB_FUTILE_CFLAGS@ @MPI_INCLUDE@ \
              -I$(top_builddir)/includes \
              -I/home/francesco/bigdft-negf/negf/src/build/src/include # (line modified)
 
-
+******************************************
 
 python ../src/Install.py autogen
 python ../src/Install.py build -c
