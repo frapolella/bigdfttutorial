@@ -1,3 +1,5 @@
+#bigdft-libnegf environment --> source env.sh (before compiling bigdft)
+
 export CC=$(which mpicc)
 export CXX=$(which mpicxx)
 export FC=$(which mpifort)
