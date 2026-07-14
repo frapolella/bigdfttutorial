@@ -11,7 +11,7 @@ export CPPFLAGS="-I$LIBNEGF_INC"
 export CFLAGS="-I$LIBNEGF_INC"
 export CXXFLAGS="-I$LIBNEGF_INC"
 export FCFLAGS="-fopenmp -I$LIBNEGF_INC"
-export FFLAGS="-fopenmp _I$LIBNEGF_INC"
+export FFLAGS="-fopenmp -I$LIBNEGF_INC"
 export LDFLAGS="-fopenmp \
 -L$LIBNEGF_LIB -lnegf \
 -L$MPIFX_LIB -lmpifx"
