@@ -231,7 +231,9 @@ export BIGDFT_CONFIGURE_FLAGS="--enable-mpi \
 ***************How merge BigDFT-Suite with LibNEGF******************
 ***************How merge BigDFT-Suite with LibNEGF******************
  
+use env.sh to generate the best env in ordert to link bigdfts-suite and libnegf 
 
+Change bigdft/src/bigdft/src/Makefile.am in "bigdft_library =" add "-L$(LIBNEGF_LIB) -lnegf"
  export CC=$(which mpicc)
  export CXX=$(which mpicxx)
  export FC=$(which mpifort)
