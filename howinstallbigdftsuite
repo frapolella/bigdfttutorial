@@ -233,8 +233,12 @@ export BIGDFT_CONFIGURE_FLAGS="--enable-mpi \
  
 use env.sh to generate the best env in ordert to link bigdfts-suite and libnegf 
 
-Change bigdft/src/bigdft/src/Makefile.am in "bigdft_library =" add "-L$(LIBNEGF_LIB) -lnegf"
- export CC=$(which mpicc)
+Change bigdft/src/bigdft/src/Makefile.am
+"bigdft_library =" add "-L$(LIBNEGF_LIB) -lnegf"
+ bigdft_deps += @LIB_BIGDFT_DEPS@ --> \
+               -L/home/francesco/bigdft-negf/pybigdfttest/libnegf/build/src \
+               -lnegf
+export CC=$(which mpicc)
  export CXX=$(which mpicxx)
  export FC=$(which mpifort)
  export F77=$(which mpifort)
