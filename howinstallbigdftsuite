@@ -238,7 +238,13 @@ Change bigdft/src/bigdft/src/Makefile.am
  bigdft_deps += @LIB_BIGDFT_DEPS@ --> \
                -L/home/francesco/bigdft-negf/pybigdfttest/libnegf/build/src \
                -lnegf
-export CC=$(which mpicc)
+Change /pybigdfttest/libnegf/build/src
+AM_FCFLAGS = -I. -I$(srcdir) @LIB_FUTILE_CFLAGS@ @MPI_INCLUDE@ \
+             -I$(top_builddir)/includes \
+             -I/home/francesco/bigdft-negf/pybigdfttest/libnegf/build/src/include #modified
+
+
+ export CC=$(which mpicc)
  export CXX=$(which mpicxx)
  export FC=$(which mpifort)
  export F77=$(which mpifort)
