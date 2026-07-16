@@ -231,14 +231,42 @@ export BIGDFT_CONFIGURE_FLAGS="--enable-mpi \
 ***************How merge BigDFT-Suite with LibNEGF******************
 ***************How merge BigDFT-Suite with LibNEGF******************
 
-git clone https://gitlab.com/l_sim/bigdft-suite.git
-cd bigdft-suite
-git checkout libnegf
+1) git clone https://gitlab.com/l_sim/bigdft-suite.git
+2) cd bigdft-suite
+3) git checkout libnegf
 
-use env.sh to generate the best env in ordert to link bigdfts-suite and libnegf 
+4) use env.sh to generate the best env in ordert to link bigdfts-suite and libnegf 
+
+bigdft_deps =
+
+bigdft_library =
+
+if BUILD_DYNAMIC_LIBS
+bigdft_dynamic_library = libbigdft-1.so.@BIGDFT_MINOR_VERSION@.0.@BIGDFT_MICRO_VERSION@
+
+bigdft_deps += @LIB_BIGDFT_DEPS@ \
+              -L/home/francesco/bigdft-negf/pybigdfttest/libnegf/build/src \
+              -lnegf
+
+bigdft_library += $(bigdft_soname_library) $(bigdft_deps)
+
+AM_LDFLAGS = @FC_RPATH@$(DESTDIR)$(dynlibdir)
+
+else
+
+bigdft_dynamic_library =
+bigdft_soname_library =
+
+bigdft_deps += @LIB_BIGDFT_DEPS@ @LINALG_LIBS@ \
+              -L/home/francesco/bigdft-negf/pybigdfttest/libnegf/build/src \
+              -lnegf
+
+bigdft_library += libbigdft-1.a $(bigdft_deps)
+
+endif
 
 Change bigdft/src/bigdft/src/Makefile.am
- bigdft_library = -L$(LIBNEGF_LIB) -lnegf
+ bigdft_library = #-L$(LIBNEGF_LIB) -lnegf
  bigdft_deps += @LIB_BIGDFT_DEPS@ --> \
                -L/home/francesco/bigdft-negf/pybigdfttest/libnegf/build/src \
                -lnegf
