@@ -230,7 +230,11 @@ export BIGDFT_CONFIGURE_FLAGS="--enable-mpi \
 ***************How merge BigDFT-Suite with LibNEGF******************
 ***************How merge BigDFT-Suite with LibNEGF******************
 ***************How merge BigDFT-Suite with LibNEGF******************
- 
+
+git clone https://gitlab.com/l_sim/bigdft-suite.git
+cd bigdft-suite
+git checkout libnegf
+
 use env.sh to generate the best env in ordert to link bigdfts-suite and libnegf 
 
 Change bigdft/src/bigdft/src/Makefile.am
