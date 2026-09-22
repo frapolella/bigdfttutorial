@@ -237,6 +237,22 @@ export BIGDFT_CONFIGURE_FLAGS="--enable-mpi \
 
 4) use env.sh to generate the best env in ordert to link bigdfts-suite and libnegf 
 
+to add Mo datas change bigdft-suite/src/bigdft/src/input_variables_definition.yaml and find ig_occupation
+  add --> rloc_kernel_foe: 12.0
+     H: { nbasis: 1, rloc: 5.0 }
+    Li: { nbasis: 1, rloc: 5.5 }
+    ...
+    Mo: { nbasis: 13, rloc: 7.5 }
+ ig_occupation:
+   Fe:
+      ...
+   Mo:
+      4s: 2.0
+      4p: 6.0
+      4d: 5.0
+      5s: 1.0
+      5p: 0.0
+
 
 Change bigdft/src/bigdft/src/Makefile.am
  bigdft_library = #-L$(LIBNEGF_LIB) -lnegf
