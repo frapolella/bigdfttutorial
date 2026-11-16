@@ -10,8 +10,8 @@
 
 export OMP_NUM_THREADS=$SLURM_CPUS_PER_TASK
 
-source /p/home/jusers/polella1/juwels/newbigdft/new_module.sh
-source /p/home/jusers/polella1/juwels/newbigdft/new_env.sh
+source /path/to/this/installation_all/example/module.sh
+source /path/to/installation_all/bigdft_env.sh
 
 export BIGDFT_MPIRUN="srun"
 python mos2_no_defects.py
