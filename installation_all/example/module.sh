@@ -13,7 +13,7 @@ module load ASE/3.26.0
 module load PyYAML/6.0.2
 module load tbb/2022.2.0
 
-source /path/to/bigdft_env.sh #è la dir installation_all
+#source /path/to/installation_all/bigdft_env.sh
 
 source /path/to/bigdft-suite/build/install/bin/bigdftvars.sh
 
