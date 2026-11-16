@@ -9,4 +9,6 @@ source /path/to/this/installation_all/example/module.sh
 source /path/to/installation_all/bigdft_env.sh
 with your parent directory path.
 
+sed -i 's/\r$//' 48_sbatch.sh
+
 sbatch 48_sbatch
