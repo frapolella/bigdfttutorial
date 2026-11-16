@@ -77,7 +77,7 @@ inp.write_support_functions_on_disk()
 #convergence of electronic density
 #inp["dft"] = {"gnrm_cv": 1e-6} #----> generates error ---> Full Grid Arrays (MB)   : 199
 
-optimize input
+#optimize input
 #inp.optimize_geometry(
 # method="BFGS",
 # nsteps=5,
