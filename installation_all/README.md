@@ -1,55 +1,55 @@
 #============================================================
 #BigDFT-libNEGF Installation Workflow
 #============================================================
-#
-#This file describes the complete installation procedure for
-#building BigDFT with libNEGF support on the JUWELS HPC system 
-#via real_installer.sh.
 
-#After cloning the repository to your HPC system, run:
+ This file describes the complete installation procedure for
+ building BigDFT with libNEGF support on the JUWELS HPC system 
+ via real_installer.sh.
+
+ After cloning the repository to your HPC system, run:
   bash real_installer.sh
-# The script will compile and install both software packages
-# in the parent directory.
-#
-# The real_installer.sh and 3_test.sh workflow consists of the following main stages:
-#
-# 1. Load the required HPC software modules and configure the
-#    environment variables for compilers, libraries, and paths.
-#
-# 2. Clone, configure, compile, and install libNEGF using CMake.
-#
-# 3. Clone the BigDFT suite repository and switch to the
-#    dedicated "libnegf" branch.
-#
-# 4. Apply the required source-code modifications to integrate
-#    libNEGF into BigDFT, including linker flags and additional
-#    molybdenum (Mo) basis-set and occupation parameters.
-#
-# 5. Load the BigDFT environment and run the installation
-#    procedure to generate the build system and compile the
-#    merged BigDFT-libNEGF implementation.
-#
-# IMPORTANT:
-# Before running the commands, verify that all directory paths,
-# compiler settings, library paths, and module versions match
-# the target HPC environment.
-#
-# Load the required HPC software modules.
+ The script will compile and install both software packages
+ in the parent directory.
+ 
+ The real_installer.sh and 3_test.sh workflow consists of the following main stages:
+
+ 1. Load the required HPC software modules and configure the
+    environment variables for compilers, libraries, and paths.
+
+ 2. Clone, configure, compile, and install libNEGF using CMake.
+
+ 3. Clone the BigDFT suite repository and switch to the
+    dedicated "libnegf" branch.
+
+ 4. Apply the required source-code modifications to integrate
+    libNEGF into BigDFT, including linker flags and additional
+    molybdenum (Mo) basis-set and occupation parameters.
+
+ 5. Load the BigDFT environment and run the installation
+    procedure to generate the build system and compile the
+    merged BigDFT-libNEGF implementation.
+
+ IMPORTANT:
+ Before running the commands, verify that all directory paths,
+ compiler settings, library paths, and module versions match
+ the target HPC environment.
+
+Load the required HPC software modules.
 source module.sh
-#
-# At this stage, approximately 78 modules should be loaded.
-#
-# This file contains the paths to the compilers and libNEGF.
-# Update these paths according to the installation directories.
-#
-#Ex. Load the environment configuration.
+
+ At this stage, approximately 78 modules should be loaded.
+
+ This file contains the paths to the compilers and libNEGF.
+ Update these paths according to the installation directories.
+
+Ex. Load the environment configuration.
 source env.sh
-# variables file (bigdft_env.sh) with the correct paths.
-#
-# You have to export the compiler variables before building
-# libNEGF and then source bigdft_env.sh after installation
-# to update the paths to the newly generated libraries and
-# Fortran module files.
+ variables file (bigdft_env.sh) with the correct paths.
+
+ You have to export the compiler variables before building
+ libNEGF and then source bigdft_env.sh after installation
+ to update the paths to the newly generated libraries and
+ Fortran module files.
 
 
 # ============================================================
